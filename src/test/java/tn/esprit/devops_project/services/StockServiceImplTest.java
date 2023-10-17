@@ -64,12 +64,4 @@ class StockServiceImplTest {
         // Vous pouvez également effectuer d'autres assertions si nécessaire
 
     }
-
-    @Test
-    void retrieveStock() {
-    }
-
-    @Test
-    void retrieveAllStock() {
-    }
 }
