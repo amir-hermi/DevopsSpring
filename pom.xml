@@ -87,7 +87,7 @@
                         </goals>
                         <configuration>
                             <excludes>
-                                <exclude>src/main/java/tn/esprit/devops_project/controllers/*</exclude>
+                                <exclude>tn/esprit/devops_project/controllers/*</exclude>
                             </excludes>
                             <formats>
                                 <format>XML</format>
