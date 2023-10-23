@@ -15,6 +15,7 @@
     <description>DevOps_Project</description>
     <properties>
         <java.version>11</java.version>
+        <sonar.coverage.exclusions>**/tn/esprit/devops_project/controllers/*</sonar.coverage.exclusions>
     </properties>
     <dependencies>
         <dependency>
@@ -86,9 +87,7 @@
                             <goal>report</goal>
                         </goals>
                         <configuration>
-                            <excludes>
-                                <exclude>tn/esprit/devops_project/controllers/*</exclude>
-                            </excludes>
+
                             <formats>
                                 <format>XML</format>
                             </formats>
