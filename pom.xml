@@ -87,9 +87,9 @@
                         </goals>
                         <configuration>
                             <excludes>
-                                <exclude>**/tn/esprit/devops_project/controllers/**/*</exclude>
-                                <exclude>**/tn/esprit/devops_project/entities/**/*</exclude>
-                                <exclude>**/tn/esprit/devops_project/repositories/**/*</exclude>
+                                <exclude>tn/esprit/devops_project/controllers/**/*</exclude>
+                                <exclude>tn/esprit/devops_project/entities/**/*</exclude>
+                                <exclude>tn/esprit/devops_project/repositories/**/*</exclude>
                             </excludes>
                             <formats>
                                 <format>XML</format>
