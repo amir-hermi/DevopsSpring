@@ -86,6 +86,9 @@
                             <goal>report</goal>
                         </goals>
                         <configuration>
+                                <includes>
+                                    <include>**/tn.esprit.devops_project/services/*.class</include>
+                                </includes>
                             <formats>
                                 <format>XML</format>
                             </formats>
