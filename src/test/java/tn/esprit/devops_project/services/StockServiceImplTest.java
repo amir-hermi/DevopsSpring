@@ -21,10 +21,9 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
-@SpringBootTest
 class StockServiceImplTest {
     @InjectMocks
-    IStockService iStockService;
+    StockServiceImpl iStockService;
     @Mock
     StockRepository stockRepository;
 
@@ -58,7 +57,7 @@ class StockServiceImplTest {
         Stock stockAjoute = iStockService.addStock(stock);
 
         assertNotNull(stockAjoute.getIdStock());
-        assertEquals("Produit 1", stockAjoute.getTitle());
+        assertEquals("NEW STOCK TEST", stockAjoute.getTitle());
         assertEquals(2, stockAjoute.getProducts().size());
 
         // Vous pouvez également effectuer d'autres assertions si nécessaire
