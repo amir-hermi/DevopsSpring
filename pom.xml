@@ -87,7 +87,7 @@
                         </goals>
                         <configuration>
                                 <includes>
-                                    <include>**/tn.esprit.devops_project/services/*.class</include>
+                                    <include>**/tn.esprit.devops_project/services/**/*.class</include>
                                 </includes>
                             <formats>
                                 <format>XML</format>
