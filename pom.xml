@@ -15,7 +15,7 @@
     <description>DevOps_Project</description>
     <properties>
         <java.version>11</java.version>
-        <sonar.coverage.exclusions>**/tn/esprit/devops_project/controllers/* , **/tn/esprit/devops_project/entities/* , **/tn/esprit/devops_project/repositories/*</sonar.coverage.exclusions>
+        <sonar.coverage.exclusions>**/tn/esprit/devops_project/controllers/*,**/tn/esprit/devops_project/DevOps_ProjectSpringBootApplication.java , **/tn/esprit/devops_project/entities/* , **/tn/esprit/devops_project/repositories/*</sonar.coverage.exclusions>
     </properties>
     <dependencies>
         <dependency>
