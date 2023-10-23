@@ -16,8 +16,7 @@ import tn.esprit.devops_project.entities.Stock;
 import tn.esprit.devops_project.repositories.StockRepository;
 import tn.esprit.devops_project.services.Iservices.IStockService;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
@@ -27,40 +26,35 @@ class StockServiceImplTest {
     @Mock
     StockRepository stockRepository;
 
-
+    Stock stock1 = new Stock(1L,"NEW STOCK TEST 1",null);
+    List<Stock> listStock = new ArrayList<Stock>() {
+        {
+            add( new Stock(2L,"NEW STOCK TEST 2",null));
+            add( new Stock(3L,"NEW STOCK TEST 3",null));
+        }
+    };
     @Test
     void addStock() {
-        Stock stock = new Stock();
-        stock.setTitle("NEW STOCK TEST");
+        Mockito.when(stockRepository.save(stock1)).thenReturn(stock1);
 
-        Set<Product> produits = new HashSet<>();
-        Product produit1 = new Product();
-        produit1.setTitle("Produit 1");
-        produit1.setCategory(ProductCategory.ELECTRONICS);
-        produit1.setPrice(200f);
-        produit1.setQuantity(1);
-        produit1.setStock(stock);
-        produits.add(produit1);
-
-        Product produit2 = new Product();
-        produit2.setTitle("Produit 2 ");
-        produit2.setCategory(ProductCategory.BOOKS);
-        produit2.setPrice(800f);
-        produit2.setQuantity(3);
-        produit2.setStock(stock);
-        produits.add(produit2);
-
-        stock.setProducts(produits);
-
-        Mockito.when(stockRepository.save(stock)).thenReturn(stock);
-
-        Stock stockAjoute = iStockService.addStock(stock);
+        Stock stockAjoute = iStockService.addStock(stock1);
 
         assertNotNull(stockAjoute.getIdStock());
-        assertEquals("NEW STOCK TEST", stockAjoute.getTitle());
-        assertEquals(2, stockAjoute.getProducts().size());
+        assertEquals("NEW STOCK TEST 1", stockAjoute.getTitle());
+    }
+    @Test
+    public void retrieveStock() {
+        Mockito.when(stockRepository.findById(1L)).thenReturn(Optional.of(stock1));
+        Stock stock = iStockService.retrieveStock(1L);
+        assertNotNull(stock);
+    }
 
-        // Vous pouvez également effectuer d'autres assertions si nécessaire
-
+    @Test
+    public void retrieveAllStock() {
+        Mockito.when(stockRepository.findAll()).thenReturn(listStock);
+        List<Stock> stocksRetournes = iStockService.retrieveAllStock();
+        assertEquals(2, stocksRetournes.size());
+        assertEquals(2L, stocksRetournes.get(0).getIdStock());
+        assertEquals(3L, stocksRetournes.get(1).getIdStock());
     }
 }
