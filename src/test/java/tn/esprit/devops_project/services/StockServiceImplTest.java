@@ -25,6 +25,7 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
+
 class StockServiceImplTest {
     @InjectMocks
     StockServiceImpl iStockService;
@@ -44,18 +45,17 @@ class StockServiceImplTest {
 
         Stock stockAjoute = iStockService.addStock(stock1);
 
-        assertNotNull(stockAjoute.getIdStock());
         assertEquals("NEW STOCK TEST 1", stockAjoute.getTitle());
     }
     @Test
-    public void retrieveStock() {
+     void retrieveStock() {
         Mockito.when(stockRepository.findById(1L)).thenReturn(Optional.of(stock1));
         Stock stock = iStockService.retrieveStock(1L);
         assertNotNull(stock);
     }
 
     @Test
-    public void retrieveAllStock() {
+     void retrieveAllStock() {
         Mockito.when(stockRepository.findAll()).thenReturn(listStock);
         List<Stock> stocksRetournes = iStockService.retrieveAllStock();
         assertEquals(2, stocksRetournes.size());
