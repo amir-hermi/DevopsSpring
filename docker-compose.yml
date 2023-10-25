@@ -11,7 +11,7 @@ services:
   timesheet-backend:
     depends_on:
       - mysqldb
-    build: ./app
+    build: ./
     restart: on-failure
     ports:
       - "6868:8082"
