@@ -15,7 +15,6 @@ services:
     image: amir/spring-app
     depends_on:
       - mysqldb
-    build: ./
     restart: on-failure
     ports:
       - "6868:8082"
