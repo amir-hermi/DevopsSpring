@@ -1,5 +1,5 @@
 # Use an OpenJDK Runtime as a parent image
-FROM openjdk:8-jre-alpine
+FROM openjdk:11-jre-alpine
 # Set the working directory to /app
 WORKDIR /
 # Copy the executable into the container at /app
