@@ -5,7 +5,7 @@ services:
     image: mysql:latest
     restart: unless-stopped
     ports:
-      - "3307:3306"
+      - 3307:3306
     environment:
       MYSQL_ROOT_PASSWORD: ''
       MYSQL_DATABASE: 'devops'
@@ -15,9 +15,8 @@ services:
     image: amir/spring-app
     depends_on:
       - mysqldb
-    restart: on-failure
     ports:
-      - "6868:8082"
+      - 6868:8082
     volumes:
       - .m2:/root/.m2
     stdin_open: true
