@@ -24,7 +24,7 @@ services:
     environment:
       MYSQL_DATABASE: 'devops'
       MYSQL_USER: 'root'
-      MYSQL_PASSWORD: ''
-      MYSQL_ROOT_PASSWORD: ''
+      MYSQL_PASSWORD: 'devops'  # Set your desired MySQL password here
+      MYSQL_ROOT_PASSWORD: 'devops'  # Set your desired MySQL root password here
 networks:
   springapimysql-net:
