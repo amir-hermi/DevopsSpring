@@ -9,9 +9,7 @@ services:
     ports:
       - 3306:3306
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     depends_on:
       - mysqldb
     restart: on-failure
