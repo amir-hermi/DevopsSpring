@@ -6,8 +6,6 @@ services:
       - 8082:8082
     networks:
       - springapimysql-net
-    environment:
-      - spring.datasource.url=jdbc:mysql://mysqldb:3306/devops?allowPublicKeyRetrieval=true
     depends_on:
       - mysqldb
     volumes:
@@ -21,7 +19,7 @@ services:
     networks:
       - springapimysql-net
     environment:
+      MYSQL_ROOT_PASSWORD: devops
       MYSQL_DATABASE: devops
-      MYSQL_PASSWORD: devops
 networks:
   springapimysql-net:
