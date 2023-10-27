@@ -1,5 +1,4 @@
 version: "3.8"
-
 services:
   mysqldb:
     image: mysql
@@ -12,6 +11,7 @@ services:
     volumes:
       - db:/var/lib/mysql
   app:
+    image : amir/spring-app
     depends_on:
       - mysqldb
     build: .
