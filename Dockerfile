@@ -7,4 +7,4 @@ ADD target/*.jar app.jar
 # Make port 8080 available to the world outside this container
 EXPOSE 8082
 # Run app.jar when the container launches
-CMD ["./wait-for-it.sh", "mysqldb:3306", "--", "java", "-jar", "/app.jar"]
+CMD ["java", "-jar", "/app.jar"]
