@@ -18,14 +18,6 @@ services:
     restart: on-failure
     ports:
       - 8082:8082
-    environment:
-      SPRING_APPLICATION_JSON: '{
-        "spring.datasource.url"  : "jdbc:mysql://mysqldb:8082/devops?useSSL=false",
-        "spring.datasource.username" : "root",
-        "spring.datasource.password" : "123456",
-        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
-        "spring.jpa.hibernate.ddl-auto" : "update"
-      }'
     volumes:
       - .m2:/root/.m2
     stdin_open: true
