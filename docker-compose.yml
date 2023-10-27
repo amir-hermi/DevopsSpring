@@ -9,7 +9,7 @@ services:
     ports:
       - 3306:3306
   app:
-    build: .
+    image: amir/spring-app
     depends_on:
       - mysqldb
     restart: on-failure
