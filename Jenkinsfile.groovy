@@ -4,7 +4,7 @@ pipeline {
         stage('Pulling..') {
             steps {
                 script {
-                    git branch: 'master',
+                    git branch: 'hbaieb',
                     credentialsId: 'spring-access-token',
                     url: 'https://github.com/amir-hermi/DevopsSpring.git'
                 }
