@@ -4,6 +4,7 @@ services:
     image: mysql
     restart: unless-stopped
     environment:
+      - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=devops
     ports:
       - 3306:3306
