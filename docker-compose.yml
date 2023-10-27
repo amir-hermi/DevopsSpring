@@ -19,7 +19,9 @@ services:
     networks:
       - springapimysql-net
     environment:
-      MYSQL_ROOT_PASSWORD: devops
-      MYSQL_DATABASE: devops
+      MYSQL_ROOT_PASSWORD: 'devops'
+      MYSQL_DATABASE: 'devops'
+      MYSQL_USER: 'root'  # Set your desired username
+      MYSQL_PASSWORD: 'devops'  # Set your desired password
 networks:
   springapimysql-net:
