@@ -17,7 +17,7 @@
         <java.version>11</java.version>
         <sonar.coverage.exclusions>**/tn/esprit/devops_project/controllers/*,**/tn/esprit/devops_project/DevOps_ProjectSpringBootApplication.java , **/tn/esprit/devops_project/entities/* , **/tn/esprit/devops_project/repositories/*</sonar.coverage.exclusions>
     </properties>
-    <!-- Deploy to Nexus -->
+    <!-- Deploy to nexus -->
     <distributionManagement>
         <repository>
             <id>deploymentRepo</id>
