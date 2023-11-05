@@ -24,6 +24,12 @@ pipeline {
                 }
             }
         }
+
+        stage('MVN NEXUS') {
+            steps {
+                sh 'mvn deploy -Dmaven.test.skip=true'
+            }
+        }
     }
 }
 
