@@ -62,4 +62,16 @@ class StockServiceImplTest {
         assertEquals(2L, stocksRetournes.get(0).getIdStock());
         assertEquals(3L, stocksRetournes.get(1).getIdStock());
     }
+    @Test
+    void deleteStock(){
+        iStockService.deleteStock(1L);
+        Mockito.verify(stockRepository).deleteById(1L);
+    }
+
+    @Test
+    void updateStock(){
+        Stock updatedStock = new Stock(1L,"NEW STOCK updated !",null);
+        iStockService.updateStock(updatedStock);
+        Mockito.verify(stockRepository).save(updatedStock);
+    }
 }

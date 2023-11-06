@@ -28,6 +28,14 @@ public class StockController {
     List<Stock> retrieveAllStock(){
         return stockService.retrieveAllStock();
     }
+    @GetMapping("/stock/delete/{id}")
+    void deleteStock(@PathVariable Long id){
+        stockService.deleteStock(id);
+    }
+    @GetMapping("/stock/update")
+    Stock updateStock(@RequestBody Stock stock){
+       return stockService.updateStock(stock);
+    }
 
 
 }
