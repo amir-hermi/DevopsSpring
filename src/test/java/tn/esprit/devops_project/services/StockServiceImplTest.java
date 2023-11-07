@@ -21,11 +21,13 @@ import tn.esprit.devops_project.entities.Stock;
 import tn.esprit.devops_project.repositories.StockRepository;
 import tn.esprit.devops_project.services.Iservices.IStockService;
 
+import javax.transaction.Transactional;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
-
+@Transactional
+@SpringBootTest
 class StockServiceImplTest {
     @InjectMocks
     StockServiceImpl iStockService;
