@@ -49,9 +49,13 @@ class StockServiceImplTest {
     }
     @Test
      void retrieveStock() {
-        Mockito.when(stockRepository.findById(1L)).thenReturn(Optional.of(stock1));
+       Stock stock = stockRepository.save(stock1);
+       Stock retrievedStock = iStockService.retrieveStock(stock.getIdStock());
+        assertNotNull(retrievedStock);
+        assertEquals("NEW STOCK TEST 1", retrievedStock.getTitle());
+       /* Mockito.when(stockRepository.findById(1L)).thenReturn(Optional.of(stock1));
         Stock stock = iStockService.retrieveStock(1L);
-        assertNotNull(stock);
+        assertNotNull(stock);*/
     }
 
     @Test
