@@ -1,6 +1,5 @@
 package tn.esprit.devops_project.services;
 
-import org.junit.Before;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -10,7 +9,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -27,16 +25,15 @@ import javax.transaction.Transactional;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-@RunWith(MockitoJUnitRunner.class)
+@ExtendWith(MockitoExtension.class)
+@SpringBootTest
 class StockServiceImplTest {
     @InjectMocks
     StockServiceImpl iStockService;
     @Mock
     StockRepository stockRepository;
-    @Before
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
-    }
+    @Autowired
+            StockServiceImpl stockService;
 
     Stock stock1 = new Stock(1L,"NEW STOCK TEST 1",null);
     List<Stock> listStock = new ArrayList<Stock>() {
@@ -55,8 +52,8 @@ class StockServiceImplTest {
     }
     @Test
      void retrieveStock() {
-       Stock stock = stockRepository.save(stock1);
-       Stock retrievedStock = iStockService.retrieveStock(stock.getIdStock());
+       Stock stock = stockService.addStock(stock1);
+       Stock retrievedStock = stockService.retrieveStock(stock.getIdStock());
         assertNotNull(retrievedStock);
         assertEquals("NEW STOCK TEST 1", retrievedStock.getTitle());
        /* Mockito.when(stockRepository.findById(1L)).thenReturn(Optional.of(stock1));
