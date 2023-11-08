@@ -81,8 +81,8 @@ class StockServiceImplTest {
     void updateStock(){
         Stock updatedStock = new Stock(1L,"NEW STOCK updated !",null);
         stockService.updateStock(updatedStock);
-        Stock retrievedStock = stockRepository.findById(1L).orElse(null);
-        assertEquals(updatedStock.getTitle(), retrievedStock.getTitle());
+        Stock retrievedUpdatedStock = stockService.retrieveStock(updatedStock.getIdStock());
+        assertEquals(updatedStock.getTitle(), retrievedUpdatedStock.getTitle());
 
 
       /*  Stock updatedStock = new Stock(1L,"NEW STOCK updated !",null);
