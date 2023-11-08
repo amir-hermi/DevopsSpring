@@ -1,6 +1,7 @@
 package tn.esprit.devops_project.services;
 
 import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,7 +27,6 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
-@SpringBootTest
 class StockServiceImplTest {
     @InjectMocks
     StockServiceImpl iStockService;
@@ -51,6 +51,7 @@ class StockServiceImplTest {
         assertEquals("NEW STOCK TEST 1", stockAjoute.getTitle());
     }
     @Test
+    @Order(1)
      void retrieveStock() {
        Stock stock = stockService.addStock(stock1);
        Stock retrievedStock = stockService.retrieveStock(stock.getIdStock());
@@ -70,9 +71,12 @@ class StockServiceImplTest {
         assertEquals(3L, stocksRetournes.get(1).getIdStock());
     }
     @Test
+    @Order(2)
     void deleteStock(){
-        iStockService.deleteStock(1L);
-        Mockito.verify(stockRepository).deleteById(1L);
+        stockService.deleteStock(1L);
+        assertNull(stockRepository.findById(1L).orElse(null), "Stock with ID " + 1L + " should be deleted.");
+       /* iStockService.deleteStock(1L);
+        Mockito.verify(stockRepository).deleteById(1L); */
     }
 
     @Test
