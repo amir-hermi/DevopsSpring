@@ -1,5 +1,6 @@
 package tn.esprit.devops_project.services;
 
+import org.junit.Before;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -9,6 +10,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -25,13 +27,16 @@ import javax.transaction.Transactional;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-@ExtendWith(MockitoExtension.class)
-@SpringBootTest
+@RunWith(MockitoJUnitRunner.class)
 class StockServiceImplTest {
     @InjectMocks
     StockServiceImpl iStockService;
     @Mock
     StockRepository stockRepository;
+    @Before
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+    }
 
     Stock stock1 = new Stock(1L,"NEW STOCK TEST 1",null);
     List<Stock> listStock = new ArrayList<Stock>() {
