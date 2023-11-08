@@ -71,18 +71,22 @@ class StockServiceImplTest {
         assertEquals(3L, stocksRetournes.get(1).getIdStock());
     }
     @Test
-    @Order(2)
     void deleteStock(){
-        stockService.deleteStock(1L);
-        assertNull(stockRepository.findById(1L).orElse(null), "Stock with ID " + 1L + " should be deleted.");
-       /* iStockService.deleteStock(1L);
-        Mockito.verify(stockRepository).deleteById(1L); */
+        iStockService.deleteStock(1L);
+        Mockito.verify(stockRepository).deleteById(1L);
     }
 
     @Test
+    @Order(2)
     void updateStock(){
         Stock updatedStock = new Stock(1L,"NEW STOCK updated !",null);
+        stockService.updateStock(updatedStock);
+        Stock retrievedStock = stockRepository.findById(1L).orElse(null);
+        assertEquals(updatedStock.getTitle(), retrievedStock.getTitle());
+
+
+      /*  Stock updatedStock = new Stock(1L,"NEW STOCK updated !",null);
         iStockService.updateStock(updatedStock);
-        Mockito.verify(stockRepository).save(updatedStock);
+        Mockito.verify(stockRepository).save(updatedStock);*/
     }
 }
