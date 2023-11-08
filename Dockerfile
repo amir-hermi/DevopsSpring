@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y maven
 WORKDIR /
 # Copy the executable into the container at /app
 ADD target/*.jar app.jar
+COPY . .
 EXPOSE 8082
 # Run app.jar when the container launches
 CMD ["java", "-jar", "/app.jar"]

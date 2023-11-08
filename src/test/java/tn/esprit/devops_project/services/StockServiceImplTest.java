@@ -26,7 +26,6 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
-@Transactional
 @SpringBootTest
 class StockServiceImplTest {
     @InjectMocks
