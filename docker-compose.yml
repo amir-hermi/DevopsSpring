@@ -8,8 +8,6 @@ services:
       - MYSQL_DATABASE=devops
     ports:
       - 3306:3306
-    volumes:
-      - db:/var/lib/mysql
   app:
     image: amir/spring-app
     depends_on:
