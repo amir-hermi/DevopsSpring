@@ -9,7 +9,7 @@ services:
     ports:
       - 3306:3306
   app:
-    image: rania/spring-app
+    image: raniachafai/devops_project
     depends_on:
       - mysqldb
     restart: on-failure
