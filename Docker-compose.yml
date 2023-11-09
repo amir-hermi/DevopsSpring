@@ -9,7 +9,7 @@ services:
     ports:
       - 3306:3306
   app:
-    image: raniachafai/devops_project
+    image: raniachafai/devops_project:2.1
     depends_on:
       - mysqldb
     restart: on-failure
