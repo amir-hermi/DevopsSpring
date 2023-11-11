@@ -38,13 +38,7 @@ pipeline {
                 }
             }
         }
-        stage('Nexus Deployement') {
-            steps {
-                script {
-                    sh 'mvn deploy -DskipTests'
-                }
-            }
-        }
+
 
         stage('GRAFANA') {
     steps {
