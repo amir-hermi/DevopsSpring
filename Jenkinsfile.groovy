@@ -55,6 +55,14 @@ pipeline {
             }
         }
 
+        stage('Push Docker Image to Docker Hub') {
+            steps {
+                script {
+                    sh "docker login -u bilel656 -p 213JMT5123T99"
+                }
+            }
+        }
+
 
         stage('GRAFANA') {
     steps {
