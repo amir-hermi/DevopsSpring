@@ -17,26 +17,24 @@ pipeline {
                 }
             }
         }
-        stage('Maven test') {
-            steps {
-                script {
-                    sh 'mvn test'
-                }
-            }
-        }
-        stage('Sonar Analysis') {
-            steps {
-                withSonarQubeEnv('sonarSpring') {
-                script {
-                    sh 'mvn sonar:sonar'
-                }
-                }
-            }
-        }
-        stage('Maven package') {
+         stage('Maven package') {
             steps {
                 script {
                     sh 'mvn package -DskipTests'
+                }
+            }
+        }
+      
+      stage('MVN SONARQUBE') {
+            steps {
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=213JMT5123 -Dmaven.test.skip=true'
+            }
+        }
+        
+         stage('Maven test') {
+            steps {
+                script {
+                    sh 'mvn test'
                 }
             }
         }
@@ -47,6 +45,18 @@ pipeline {
                 }
             }
         }
+
+        stage('GRAFANA') {
+    steps {
+        script {
+            def grafanaUrl = 'http://192.168.0.18:3000'
+            def username = 'admin'
+            def password = '213JMT5123'
+            
+            sh "curl -u $username:$password -X POST $grafanaUrl/api/dashboards/db -d @grafana_dashboard.json"
+        }
+    }
+}
        
       
         
