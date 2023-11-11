@@ -26,14 +26,14 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-      - targets: ["http://192.168.194.205:9090"]
+      - targets: ["192.168.194.205:9090"]
 
   - job_name: 'spring boot'
     metrics_path: '/actuator/prometheus'
     static_configs:
-      - targets: ['http://192.168.194.205:8082']
+      - targets: ['192.168.194.205:8082']
 
   - job_name: 'jenkins'
     metrics_path: '/prometheus'
     static_configs:
-      - targets: ['http://192.168.194.205:8080']
+      - targets: ['192.168.194.205:8080']
