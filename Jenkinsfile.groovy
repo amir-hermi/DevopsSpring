@@ -39,6 +39,14 @@ pipeline {
             }
         }
 
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    sh 'docker build -t devops_project:2.1 .'
+                }
+            }
+        }
+
 
         stage('GRAFANA') {
     steps {
