@@ -59,6 +59,7 @@ pipeline {
             steps {
                 script {
                     sh "docker login -u bilel656 -p 213JMT5123T99"
+                    sh "docker push devops_project_bilel:2.1"
                 }
             }
         }
