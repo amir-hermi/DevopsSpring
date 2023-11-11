@@ -1,4 +1,12 @@
+# Use an OpenJDK Runtime as a parent image
 FROM openjdk:11
+# Install Maven
+RUN apt-get update && apt-get install -y maven
+# Set the working directory to /app
+WORKDIR /
+# Copy the executable into the container at /app
+ADD target/*.jar app.jar
+COPY . .
 EXPOSE 8082
-ADD target/devops_project-2.1.jar devops_project-2.1.jar
-ENTRYPOINT ["java", "-jar", "/devops_project-2.1.jar"]
+# Run app.jar when the container launches
+CMD ["java", "-jar", "/app.jar"]
