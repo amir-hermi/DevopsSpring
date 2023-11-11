@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="538a7da2-bceb-49d3-bd94-12ac7feb4e16" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/test/java/tn/esprit/devops_project/DevOps_ProjectSpringBootApplicationTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/test/java/tn/esprit/devops_project/services/ActivitySectorImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+    <list default="true" id="7d83016c-5564-46d2-a1de-1122859fa3bc" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Jenkinsfile.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/Jenkinsfile.groovy" afterDir="false" />
+>>>>>>> 74f14fc81be95ec004d3100e678515ad9034f3a4
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +23,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+<<<<<<< HEAD
         <option value="Class" />
+=======
+        <option value="JUnit5 Test Class" />
+>>>>>>> 74f14fc81be95ec004d3100e678515ad9034f3a4
       </list>
     </option>
   </component>
@@ -34,14 +44,20 @@
       </MavenGeneralSettings>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="2XLuesr2Or0PLKgTr1eAFU3RyeP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+=======
+  <component name="ProjectId" id="2XPUDinWHOrwg21emNuQlNMC1Ld" />
+  <component name="ProjectLevelVcsManager">
+>>>>>>> 74f14fc81be95ec004d3100e678515ad9034f3a4
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
@@ -56,6 +72,31 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\workDevOps\DevopsSpring\src" />
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/workDevOps/newWork/DevopsSpring&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d43225b7e83b8728c20fafc07139b32a&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="tn.esprit.devops_project.services" />
+>>>>>>> 74f14fc81be95ec004d3100e678515ad9034f3a4
     </key>
   </component>
   <component name="RunManager">
@@ -70,6 +111,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="538a7da2-bceb-49d3-bd94-12ac7feb4e16" name="Changes" comment="" />
       <created>1698420781122</created>
       <option name="number" value="Default" />
@@ -79,6 +121,16 @@
       <workItem from="1698421169573" duration="20000" />
       <workItem from="1699210224502" duration="7333000" />
       <workItem from="1699663092059" duration="38000" />
+=======
+      <changelist id="7d83016c-5564-46d2-a1de-1122859fa3bc" name="Changes" comment="" />
+      <created>1698530091915</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1698530091915</updated>
+      <workItem from="1698530093457" duration="1746000" />
+      <workItem from="1699191608101" duration="3625000" />
+      <workItem from="1699206702001" duration="1962000" />
+>>>>>>> 74f14fc81be95ec004d3100e678515ad9034f3a4
     </task>
     <servers />
   </component>
