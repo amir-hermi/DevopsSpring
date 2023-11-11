@@ -9,7 +9,7 @@ services:
     ports:
       - 3306:3306
   app:
-    image: devops_project_bilel
+    image: devops_project_bilel:2.1
     depends_on:
       - mysqldb
     restart: on-failure
