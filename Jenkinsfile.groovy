@@ -47,6 +47,14 @@ pipeline {
             }
         }
 
+        stage('Run Docker Compose') {
+            steps {
+                script {
+                    sh "/home/vagrant/.docker/cli-plugins/docker-compose -f Docker-compose.yml up -d"
+                }
+            }
+        }
+
 
         stage('GRAFANA') {
     steps {
