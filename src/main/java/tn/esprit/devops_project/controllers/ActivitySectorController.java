@@ -32,8 +32,9 @@ public class ActivitySectorController {
     }
 
     @PutMapping("/activitySector")
-    ActivitySector updateActivitySector(@RequestBody ActivitySector activitySector) {
-        return activitySectorService.updateActivitySector(activitySector);
+    ActivitySectorDto updateActivitySector(@RequestBody ActivitySectorDto activitySectorDto) {
+        ActivitySector activitySector = convertDTOToEntity(activitySectorDto);
+        return ActivitySectorDto.fromEntity(activitySectorService.updateActivitySector(activitySector));
     }
 
     @GetMapping("/activitySector/{id}")

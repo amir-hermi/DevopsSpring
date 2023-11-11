@@ -2,6 +2,9 @@ package tn.esprit.devops_project.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.devops_project.dto.InvoiceDetailDto;
+import tn.esprit.devops_project.dto.OperatorDto;
+import tn.esprit.devops_project.dto.ProductDto;
 import tn.esprit.devops_project.entities.Operator;
 import tn.esprit.devops_project.services.Iservices.IOperatorService;
 
@@ -24,8 +27,9 @@ public class OperatorController {
 	}
 
 	@PostMapping("/operator")
-	public Operator addOperator(@RequestBody Operator operator) {
-		return operatorService.addOperator(operator);
+	public OperatorDto addOperator(@RequestBody OperatorDto operatorDTO) {
+		Operator operator = convertDTOToEntity(operatorDTO);
+		return OperatorDto.fromEntity(operatorService.addOperator(operator));
 	}
 
 	@DeleteMapping("/operatot/{operatorId}")
@@ -34,9 +38,22 @@ public class OperatorController {
 	}
 
 	@PutMapping("/operator")
-	public Operator modifyOperateur(@RequestBody Operator operator) {
-		return operatorService.updateOperator(operator);
+	public OperatorDto modifyOperateur(@RequestBody OperatorDto operatorDTO) {
+		Operator operator = convertDTOToEntity(operatorDTO);
+		return OperatorDto.fromEntity(operatorService.updateOperator(operator));
 	}
 
-	
+
+	private Operator convertDTOToEntity(OperatorDto operatorDTO) {
+		Operator operator = new tn.esprit.devops_project.entities.Operator();
+		operator.setIdOperateur(operatorDTO.getIdOperateur());
+		operator.setFname(operatorDTO.getFname());
+		operator.setLname(operatorDTO.getLname());
+		operator.setPassword(operatorDTO.getPassword());
+		// Convert set of InvoiceDTOs to set of Invoice entities
+		// Assume you have a similar conversion method for InvoiceDTOs
+		// operator.setInvoices(convertInvoicesToEntities(operatorDTO.getInvoices()));
+		// Set other properties as needed
+		return operator;
+	}
 }
