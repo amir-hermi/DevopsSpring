@@ -42,7 +42,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t Devops_project_Bilel:2.1 .'
+                    sh 'docker build -t devops_project_bilel:2.1 .'
                 }
             }
         }
