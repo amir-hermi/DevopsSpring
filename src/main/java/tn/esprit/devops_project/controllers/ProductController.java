@@ -2,6 +2,7 @@ package tn.esprit.devops_project.controllers;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import tn.esprit.devops_project.dto.ProductDto;
 import tn.esprit.devops_project.entities.Product;
 import tn.esprit.devops_project.entities.ProductCategory;
 import tn.esprit.devops_project.services.Iservices.IProductService;
@@ -16,8 +17,9 @@ public class ProductController {
     private final IProductService productService;
 
     @PostMapping("/product/{idStock}")
-    Product addProduct(@RequestBody Product product,@PathVariable Long idStock){
-        return productService.addProduct(product,idStock);
+    ProductDto addProduct(@RequestBody ProductDto productDTO, @PathVariable Long idStock){
+        tn.esprit.devops_project.entities.Product product = ProductDto.toEntity(productDTO);
+        return ProductDto.fromEntity(productService.addProduct(product,idStock));
     }
 
     @GetMapping("/product/{id}")
