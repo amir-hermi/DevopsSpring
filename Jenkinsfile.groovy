@@ -10,47 +10,45 @@ pipeline {
                 }
             }
         }
-        stage('Maven clean') {
+        stage('Maven clean/Compile') {
             steps {
                 script {
-                    sh 'mvn clean'
+                    sh 'mvn clean compile verify'
                 }
             }
         }
-        stage('Maven Compile') {
+        stage('Maven test') {
             steps {
                 script {
-                    sh 'mvn compile'
+                    sh 'mvn test'
                 }
             }
         }
-        stage('MVN SONARQUBE') {
+        stage('Sonar Analysis') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=213JMT5123T99 -Dmaven.test.skip=true'
-            }
-        }
-
-        stage('MVN Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        stage('MVN NEXUS') {
-            steps {
-                sh 'mvn deploy -Dmaven.test.skip=true'
-            }
-        }
-
-        stage('GRAFANA') {
-             steps {
+                withSonarQubeEnv('sonarSpring') {
                 script {
-                    def grafanaUrl = 'http://192.168.0.18:3000'
-                    def username = 'admin'
-                    def password = '213JMT5123T99'
-                    sh "curl -u $username:$password -X POST $grafanaUrl/api/dashboards/db -d @grafana_dashboard.json"
+                    sh 'mvn sonar:sonar'
                 }
                 }
-}
+            }
+        }
+        stage('Maven package') {
+            steps {
+                script {
+                    sh 'mvn package -DskipTests'
+                }
+            }
+        }
+        stage('Nexus Deployement') {
+            steps {
+                script {
+                    sh 'mvn deploy -DskipTests'
+                }
+            }
+        }
+       
+      
+        
     }
 }
-
