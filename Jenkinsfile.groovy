@@ -51,7 +51,7 @@ pipeline {
         script {
             def grafanaUrl = 'http://192.168.0.18:3000'
             def username = 'admin'
-            def password = '213JMT5123'
+            def password = '213JMT5123T99'
             
             sh "curl -u $username:$password -X POST $grafanaUrl/api/dashboards/db -d @grafana_dashboard.json"
         }
