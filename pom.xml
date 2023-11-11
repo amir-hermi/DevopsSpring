@@ -15,6 +15,7 @@
     <description>DevOps_Project</description>
     <properties>
         <java.version>11</java.version>
+        <sonar.login>squ_a007c359d6200e97fb8fdf4b60622cbd40afa989</sonar.login>
         <sonar.coverage.exclusions>**/tn/esprit/devops_project/controllers/*,**/tn/esprit/devops_project/DevOps_ProjectSpringBootApplication.java , **/tn/esprit/devops_project/entities/* , **/tn/esprit/devops_project/repositories/*</sonar.coverage.exclusions>
     </properties>
     <!-- Deploy to Nexus -->
