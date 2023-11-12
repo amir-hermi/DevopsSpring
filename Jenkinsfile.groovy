@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Pulling..') {
+        stage('git..') {
             steps {
                 script {
                     git branch: 'bilel',
@@ -10,20 +10,12 @@ pipeline {
                 }
             }
         }
-        /*
-        stage('Maven clean/Compile') {
+     
+         stage('buil') {
             steps {
-                script {
-                    sh 'mvn clean compile verify'
-                }
-            }
-        }
-        */
-         stage('Maven package') {
-            steps {
-                script {
+               
                     sh 'mvn package -DskipTests'
-                }
+                
             }
         }
       
@@ -66,7 +58,7 @@ pipeline {
         }
 
        
-/*
+
         stage('Push Docker Image to Docker Hub') {
             steps {
                 script {
@@ -75,7 +67,7 @@ pipeline {
                 }
             }
         }
-*/
+
 /*
         stage('GRAFANA') {
     steps {
