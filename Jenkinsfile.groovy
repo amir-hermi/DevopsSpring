@@ -10,6 +10,7 @@ pipeline {
                 }
             }
         }
+        /*
         stage('Maven clean/Compile') {
             steps {
                 script {
@@ -17,6 +18,7 @@ pipeline {
                 }
             }
         }
+        */
          stage('Maven package') {
             steps {
                 script {
@@ -30,6 +32,12 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=213JMT5123T99 -Dmaven.test.skip=true'
             }
         }
+         stage('Publish to Nexus') {
+             steps {
+                sh "mvn deploy -DskipTests"
+        
+                }
+            }
         
          stage('Maven test') {
             steps {
@@ -38,6 +46,8 @@ pipeline {
                 }
             }
         }
+
+        
 
         stage('Build Docker Image') {
             steps {
@@ -55,6 +65,8 @@ pipeline {
             }
         }
 
+       
+/*
         stage('Push Docker Image to Docker Hub') {
             steps {
                 script {
@@ -63,8 +75,8 @@ pipeline {
                 }
             }
         }
-
-
+*/
+/*
         stage('GRAFANA') {
     steps {
         script {
@@ -76,6 +88,7 @@ pipeline {
         }
     }
 }
+*/
        
       
         
