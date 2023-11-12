@@ -42,7 +42,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t devops_project_bilel:2.1 .'
+                    sh 'docker build -t bilel656/devops_project .'
                 }
             }
         }
@@ -59,7 +59,7 @@ pipeline {
             steps {
                 script {
                     sh "docker login -u bilel656 -p 213JMT5123T99"
-                    sh "docker push devops_project_bilel:2.1"
+                    sh "docker push bilel656/devops_project"
                 }
             }
         }
