@@ -55,6 +55,13 @@ pipeline {
             }
         }
 
+        stage('Publish to Nexus') {
+             steps {
+                sh "mvn deploy -DskipTests"
+        
+                }
+            }
+/*
         stage('Push Docker Image to Docker Hub') {
             steps {
                 script {
@@ -63,8 +70,8 @@ pipeline {
                 }
             }
         }
-
-
+*/
+/*
         stage('GRAFANA') {
     steps {
         script {
@@ -76,6 +83,7 @@ pipeline {
         }
     }
 }
+*/
        
       
         
