@@ -27,5 +27,13 @@ public class ActivitySector  implements Serializable {
         @ManyToMany(mappedBy="activitySectors")
         @JsonIgnore
         private Set<Supplier> suppliers;
+        private String name;
+
+        // Constructor, other methods, and setters
+
+        public String getName() {
+                return name;
+        }
+
 
 }

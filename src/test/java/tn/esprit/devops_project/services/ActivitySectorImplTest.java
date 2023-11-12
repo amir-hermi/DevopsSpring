@@ -31,14 +31,14 @@ class ActivitySectorImplTest {
 
 
 
-    ActivitySector activitySector1 = new ActivitySector(1L, "NEW STOCK TEST 1", null, null);
+    ActivitySector activitySector1 = new ActivitySector(1L, "NEW STOCK TEST 1", null, null , null);
 
     @Test
     void retrieveAllActivitySectors() {
         // Simuler le comportement du repository pour retourner une liste fictive
         List<ActivitySector> fakeActivitySectors = List.of(
-                new ActivitySector(1L, "Sector 1", null, null),
-                new ActivitySector(2L, "Sector 2", null, null)
+                new ActivitySector(1L, "Sector 1", null, null,null),
+                new ActivitySector(2L, "Sector 2", null, null,null)
                 // Ajoutez d'autres secteurs fictifs au besoin
         );
         Mockito.when(activitySectorRepository.findAll()).thenReturn(fakeActivitySectors);
@@ -58,6 +58,13 @@ class ActivitySectorImplTest {
         assertEquals(activitySector1.getName(), addedSector.getName());
 
          */
+
+        // Simulate the behavior of the repository to return the added entity
+        Mockito.when(activitySectorRepository.save(Mockito.any(ActivitySector.class))).thenReturn(activitySector1);
+
+        ActivitySector addedSector = iActivitySector.addActivitySector(activitySector1);
+        assertNotNull(addedSector);
+        assertEquals(activitySector1.getName(), addedSector.getName());
     }
 
     @Test
@@ -68,6 +75,10 @@ class ActivitySectorImplTest {
         Mockito.verify(activitySectorRepository, Mockito.times(1)).deleteById(idToDelete);
 
          */
+
+        Long idToDelete = 1L;
+        iActivitySector.deleteActivitySector(idToDelete);
+        Mockito.verify(activitySectorRepository, Mockito.times(1)).deleteById(idToDelete);
     }
 
     @Test
@@ -81,6 +92,12 @@ class ActivitySectorImplTest {
         assertEquals(activitySector1.getName(), updatedSector.getName());
 
          */
+
+        Mockito.when(activitySectorRepository.save(Mockito.any(ActivitySector.class))).thenReturn(activitySector1);
+
+        ActivitySector updatedSector = iActivitySector.updateActivitySector(activitySector1);
+        assertNotNull(updatedSector);
+        assertEquals(activitySector1.getName(), updatedSector.getName());
     }
 
     // Le test pour retrieveActivitySector est déjà implémenté dans votre exemple
