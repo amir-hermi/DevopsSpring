@@ -34,7 +34,7 @@ pipeline {
          stage('Maven test') {
             steps {
                 script {
-                    sh 'mvn test'
+                    sh 'mvn test verify'
                 }
             }
         }
