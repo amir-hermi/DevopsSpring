@@ -68,7 +68,7 @@ pipeline {
             }
         }
 
-/*
+
         stage('GRAFANA') {
     steps {
         script {
@@ -80,9 +80,17 @@ pipeline {
         }
     }
 }
-*/
+
        
       
         
     }
+
+    post {
+        always {
+            script {
+                mail bcc: '', body: 'Test validé', cc: '', from: '', replyTo: '', subject: 'test DevOps ', to: 'bilel.ghazouani@esprit.tn'
+            }
+        }
+   }
 }
